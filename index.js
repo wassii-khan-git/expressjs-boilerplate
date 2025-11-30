@@ -18,6 +18,11 @@ DatabaseConnection();
 app.use(cors());
 app.use(express.json());
 
+// HTTP routes still work
+app.get("/", (req, res) => {
+  res.send("<h1>Server is healthy</h1>");
+});
+
 // Use your existing routes:
 app.use("/v1/api", router);
 
