@@ -8,17 +8,15 @@ import router from "./routes/index.js";
 import DatabaseConnection from "./db/connection.js";
 import { PORT_NUMBER } from "./config/config.js";
 
+// app initialization
 const app = express();
+
 // database connection
 DatabaseConnection();
 
+// middleware
 app.use(cors());
 app.use(express.json());
-
-// HTTP routes still work
-app.get("/", (req, res) => {
-  res.send("<h1>Server is healthy</h1>");
-});
 
 // Use your existing routes:
 app.use("/v1/api", router);
@@ -27,3 +25,6 @@ app.use("/v1/api", router);
 app.listen(PORT_NUMBER, () => {
   console.log(`Server is running on port ${PORT_NUMBER}`);
 });
+
+// for vercel deployment
+export default app;
