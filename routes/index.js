@@ -1,5 +1,4 @@
 import express from "express";
-import chatRoutes from "./chat/route.js";
 import authRoutes from "./auth/route.js";
 
 // routes
